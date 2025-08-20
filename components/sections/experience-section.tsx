@@ -7,92 +7,33 @@ import { Calendar, ChevronRight, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-type Experience = {
-  company: string;
-  companyLink: string;
-  position: string;
-  duration: string;
-  description: string[];
-  technologies: string[];
-  link: string;
-};
-
-const experiences: Experience[] = [
+// Example Data
+const experiences = [
   {
-    company: "Clipo AI",
-    companyLink: "https://www.linkedin.com/company/clipo-ai",
-    link: "https://clipo.ai",
-    position: "Frontend Developer",
-    duration: "Nov 2024 - Present",
+    company: "GirlScript Summer of Code",
+    companyLink: "https://gssoc.girlscript.tech/",
+    link: "https://gssoc.girlscript.tech/",
+    position: "Project Admin & Contributor",
+    duration: "May 2024 - Present",
     description: [
-      "Developed and maintained the frontend of Clipo Pro, an AI-powered short content creation and video editing platform using Next JS and TypeScript, improving user engagement by 40%",
-      "Implemented key features including automatic highlights, emoji suggestions, and responsive video templates that enhanced the content creation workflow",
-      "Collaborated with UX designers to create an intuitive interface for AI-driven tools like auto-captioning and multilingual subtitle generation",
+      "Maintaining and contributing to open-source projects.",
+      "Mentoring contributors and reviewing PRs.",
+      "Collaborating with developers worldwide to improve code quality and project structure."
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "UI/UX"],
+    technologies: ["React", "Next.js", "Tailwind CSS", "GitHub"],
   },
   {
-    company: "Resource Plan",
-    companyLink: "https://www.linkedin.com/company/resourceplan",
-    link: "https://resourceplan.io",
-    position: "Full Stack Developer",
-    duration: "Sep 2024 - Nov 2024",
+    company: "Sheryians Coding School",
+    companyLink: "https://sheryians.com/",
+    link: "https://sheryians.com/",
+    position: "Full Stack Cohort Member",
+    duration: "Jan 2024 - Present",
     description: [
-      "Developed and enhanced ResourcePlan's workflow management platform for architecture and engineering firms using Next JS and TypeScript",
-      "Built interactive dashboards and data visualization components while implementing RESTful APIs using Express.js and MongoDB",
-      "Designed both frontend interfaces and backend services for critical features including project budgeting, staff scheduling, and revenue forecasting tools",
+      "Learning advanced full-stack development under structured mentorship.",
+      "Building real-world projects with a focus on modern web technologies.",
+      "Collaborating with peers in hackathons and team projects."
     ],
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Docker",
-    ],
-  },
-  {
-    company: "MVP Application and Game Design LLC",
-    companyLink: "https://www.linkedin.com/company/mvp-apps",
-    link: "https://mvpapps.com",
-    position: "Frontend Developer",
-    duration: "June 2024 - July 2024",
-    description: [
-      "Developed responsive and user-centric frontend interfaces for mobile and web applications using React and TypeScript",
-      "Created intuitive UI components and interactive features that enhanced user experience across iOS and Android platforms",
-      "Collaborated with UX designers to implement accessible interfaces following the company's user-centric design approach",
-    ],
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Material UI",
-      "Node.js",
-    ],
-  },
-  {
-    company: "Influcon Digitals LLC",
-    companyLink: "https://www.linkedin.com/company/influcon-digitals",
-    link: "https://influcondigitals.com",
-    position: "Full Stack Developer",
-    duration: "Dec 2023 - Jan 2024",
-    description: [
-      "Developed full-stack web applications and digital marketing solutions using React, Next.js, and Node.js technologies",
-      "Built custom CMS platforms and e-commerce solutions with RESTful APIs using Express.js and MongoDB",
-      "Collaborated with the digital marketing team to integrate analytics tools and optimize web performance for improved SEO results",
-    ],
-    technologies: [
-      "React",
-      "TypeScript",
-      "Express.js",
-      "MongoDB",
-      "Node.js",
-      "Next.js",
-      "Tailwind CSS",
-      "Material UI",
-    ],
+    technologies: ["MERN Stack", "Next.js", "TypeScript", "Tailwind CSS", "DevOps"],
   },
 ];
 
@@ -119,8 +60,7 @@ export function ExperienceSection() {
               </span>
             </h3>
             <p className="text-[#737373] dark:text-[#A1A1AA] text-sm">
-              Companies I&apos;ve worked with and the projects I&apos;ve been
-              involved in
+              My journey as a developer through projects, mentorship, and real-world learning.
             </p>
           </div>
         </div>
@@ -173,6 +113,7 @@ export function ExperienceSection() {
                   </section>
                 </div>
 
+                {/* Expanded details */}
                 <div
                   className={cn(
                     "grid transition-all duration-500 ease-in-out",
