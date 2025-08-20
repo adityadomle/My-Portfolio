@@ -2,18 +2,14 @@
 
 import HeadingBadge from "@/components/heading-badge";
 import { IconBrandNextjs } from "@tabler/icons-react";
-import { DiRedis } from "react-icons/di";
 import {
   SiExpress,
   SiMongodb,
   SiTypescript,
-  SiPrisma,
-  SiDrizzle,
 } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
 import {
   FaCss3,
-  FaDocker,
   FaGitAlt,
   FaGithub,
   FaHtml5,
@@ -22,15 +18,19 @@ import {
   FaReact,
 } from "react-icons/fa";
 import {
-  RiFirebaseFill,
   RiSupabaseFill,
   RiTailwindCssFill,
-  RiDatabase2Fill,
 } from "react-icons/ri";
 import { FiFigma } from "react-icons/fi";
 import { VscVscode } from "react-icons/vsc";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { Lightbulb } from "lucide-react";
+import {
+  SiFramer,
+  SiRadixui,
+  SiMui,
+  SiAppwrite,
+} from "react-icons/si";
 
 type Skill = {
   name: string;
@@ -42,49 +42,51 @@ type SkillCategory = {
   skills: Skill[];
 };
 
-// Sample skills data
 const skillCategories: SkillCategory[] = [
   {
     name: "Languages",
     skills: [
       { name: "JavaScript", icon: <IoLogoJavascript color="#F7DF1E" /> },
       { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
+      { name: "Python", icon: <FaPython color="#3776AB" /> },
       { name: "HTML", icon: <FaHtml5 color="#E34F26" /> },
       { name: "CSS", icon: <FaCss3 color="#1572B6" /> },
-      { name: "Python", icon: <FaPython color="#3776AB" /> },
     ],
   },
   {
-    name: "Frameworks",
+    name: "Frontend",
     skills: [
       { name: "React", icon: <FaReact color="#61DAFB" /> },
       { name: "Next.js", icon: <IconBrandNextjs color="#ffffff" /> },
-      { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
-      { name: "Express", icon: <SiExpress color="#ffffff" /> },
       { name: "TailwindCSS", icon: <RiTailwindCssFill color="#06B6D4" /> },
+      { name: "Framer Motion", icon: <SiFramer color="#0055FF" /> },
+      { name: "shadcn/ui", icon: <span className="text-purple-500">⚡</span> },
+      { name: "Material UI", icon: <SiMui color="#007FFF" /> },
+      { name: "Radix UI", icon: <SiRadixui color="#000000" /> },
     ],
   },
   {
-    name: "Tools",
+    name: "Backend",
+    skills: [
+      { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
+      { name: "Express.js", icon: <SiExpress color="#ffffff" /> },
+      { name: "PostgreSQL", icon: <BiLogoPostgresql color="#4169E1" /> },
+      { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+      { name: "Supabase", icon: <RiSupabaseFill color="#3ECF8E" /> },
+      { name: "Appwrite", icon: <SiAppwrite color="#F02E65" /> },
+    ],
+  },
+  {
+    name: "Tools & Platforms",
     skills: [
       { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-      { name: "Docker", icon: <FaDocker color="#2496ED" /> },
-      { name: "Figma", icon: <FiFigma color="#F24E1E" /> },
-      { name: "VS Code", icon: <VscVscode color="#007ACC" /> },
       { name: "GitHub", icon: <FaGithub color="#ffffff" /> },
-    ],
-  },
-  {
-    name: "Databases",
-    skills: [
-      { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-      { name: "PostgreSQL", icon: <BiLogoPostgresql color="#4169E1" /> },
-      { name: "Neon DB", icon: <RiDatabase2Fill color="#00E599" /> },
-      { name: "Prisma", icon: <SiPrisma color="#2D3748" /> },
-      { name: "Drizzle", icon: <SiDrizzle color="#FFDC62" /> },
-      { name: "Firebase", icon: <RiFirebaseFill color="#FFCA28" /> },
-      { name: "Supabase", icon: <RiSupabaseFill color="#3ECF8E" /> },
-      { name: "Redis", icon: <DiRedis color="#DC382D" /> },
+      { name: "VS Code", icon: <VscVscode color="#007ACC" /> },
+      { name: "Figma", icon: <FiFigma color="#F24E1E" /> },
+      { name: "Vercel", icon: <span className="text-black">▲</span> },
+      { name: "Netlify", icon: <span className="text-green-500">▵</span> },
+      { name: "V0", icon: <span className="text-pink-500 font-bold">V0</span> },
+      { name: "Hoppscotch", icon: <span className="text-orange-500">⚡</span> },
     ],
   },
 ];
@@ -162,16 +164,6 @@ export function SkillsSection() {
                 {highlight.label}
               </div>
             </div>
-            {/* <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{
-                background: mounted
-                  ? theme === "dark"
-                    ? `radial-gradient(circle at center, rgba(34, 197, 94, 0.03) 0%, rgba(34, 197, 94, 0.06) 35%, transparent 70%)`
-                    : `radial-gradient(circle at center, rgba(8, 9, 10, 0.03) 0%, rgba(8, 9, 10, 0.06) 35%, transparent 70%)`
-                  : defaultBackground,
-              }}
-            /> */}
             <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#08090a]/30 dark:via-slate-300/10 to-transparent scale-x-0 group-hover:scale-x-100 opacity-0 group-hover:opacity-100 transition-all duration-500" />
           </div>
         ))}
