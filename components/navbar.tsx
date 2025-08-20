@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import MobileNav from "./mobile-nav";
 
 interface NavbarProps {
+  developerInitial?: string; // ✅ Added this
   sections?: {
     id: string;
     label: string;
@@ -22,6 +23,7 @@ type SectionPosition = {
 };
 
 export function Navbar({
+  developerInitial = "A", // ✅ Default value
   sections = [
     { id: "intro", label: "Intro" },
     { id: "skills", label: "Skills" },
@@ -38,10 +40,9 @@ export function Navbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
+  // Scroll effect
   useEffect(() => {
     if (!mounted) return;
 
@@ -60,12 +61,11 @@ export function Navbar({
             height: rect.height,
           };
         })
-        .filter((section): section is SectionPosition => section !== null);
+        .filter((s): s is SectionPosition => s !== null);
 
-      if (sectionPositions.length === 0) return;
+      if (!sectionPositions.length) return;
 
-      const viewportTop = window.scrollY;
-      const viewportCenter = viewportTop + window.innerHeight / 2;
+      const viewportCenter = window.scrollY + window.innerHeight / 2;
 
       const sortedSections = [...sectionPositions].sort((a, b) => {
         const aCenter = a.top + a.height / 2;
@@ -73,10 +73,8 @@ export function Navbar({
         return Math.abs(aCenter - viewportCenter) - Math.abs(bCenter - viewportCenter);
       });
 
-      const mostVisibleSection = sortedSections[0];
-      if (mostVisibleSection && mostVisibleSection.id !== activeSection) {
-        setActiveSection(mostVisibleSection.id);
-      }
+      const mostVisible = sortedSections[0];
+      if (mostVisible && mostVisible.id !== activeSection) setActiveSection(mostVisible.id);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,51 +84,20 @@ export function Navbar({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!mounted) return;
-    const nav = e.currentTarget;
-    const rect = nav.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
   const scrollToSection = (id: string) => {
-    if (!mounted) return;
     const element = document.getElementById(id);
     if (!element) return;
-
     const navbarHeight = 80;
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - navbarHeight;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-
+    const offset = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+    window.scrollTo({ top: offset, behavior: "smooth" });
     setActiveSection(id);
   };
 
-  if (!mounted) {
-    return (
-      <nav
-        className={cn(
-          "fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[95%] max-w-[670px] py-2 px-4 rounded-sm transition-all duration-300 overflow-hidden",
-          "bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-500/10"
-        )}
-      >
-        <div className="flex-shrink-0 relative">
-          <div className="w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-600"></div>
-        </div>
-        <div className="hidden sm:flex items-center space-x-1">
-          {sections.map((section) => (
-            <div key={section.id} className="px-3 py-1.5 text-sm rounded-full"></div>
-          ))}
-        </div>
-        <div className="sm:hidden relative z-50 w-10 h-10"></div>
-      </nav>
-    );
-  }
+  if (!mounted) return null;
 
   return (
     <>
@@ -143,35 +110,13 @@ export function Navbar({
         )}
         onMouseMove={handleMouseMove}
       >
-        {/* Shine Effect */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-30"
-          style={{
-            background:
-              theme === "dark"
-                ? `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(100, 116, 139, 0.15), transparent 40%)`
-                : `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(8, 9, 10, 0.15), transparent 40%)`,
-          }}
-        />
-
-        {/* Subtle Glow Border */}
-        <div className="absolute inset-0 rounded-sm opacity-20 blur-sm">
-          <div className="absolute inset-px rounded-sm border border-slate-200/20" />
-        </div>
-
         {/* Logo */}
         <div className="flex-shrink-0 relative">
           <Link
             href="#"
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold relative overflow-hidden group"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold"
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                style={{ animation: "var(--animate-shine)" }}
-              />
-            </div>
-            {"A"}
+            {developerInitial} {/* ✅ Use the developerInitial prop */}
           </Link>
         </div>
 
@@ -182,45 +127,30 @@ export function Navbar({
               key={section.id}
               href={`#${section.id}`}
               className={cn(
-                "px-3 py-1.5 text-sm rounded-full transition-all duration-300 relative overflow-hidden",
+                "px-3 py-1.5 text-sm rounded-full transition-all duration-300",
                 activeSection === section.id
-                  ? "text-black dark:text-white bg-gray-100 dark:bg-[#191a1a] font-normal"
-                  : "text-[#737373] dark:text-[#A1A1AA] hover:text-black dark:hover:text-white font-normal"
+                  ? "text-black dark:text-white bg-gray-100 dark:bg-[#191a1a]"
+                  : "text-[#737373] dark:text-[#A1A1AA] hover:text-black dark:hover:text-white"
               )}
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(section.id);
               }}
             >
-              {activeSection === section.id && (
-                <div className="absolute inset-0 opacity-20">
-                  <div
-                    className={cn(
-                      "absolute inset-0 bg-gradient-to-r from-transparent via-[#08090a]/30 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-slate-500/30 dark:to-transparent"
-                    )}
-                    style={{ animation: "var(--animate-shine)" }}
-                  />
-                </div>
-              )}
               {section.label}
             </Link>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu */}
         <button
-          className="sm:hidden relative z-50 w-10 h-10 flex items-center justify-center cursor-pointer"
+          className="sm:hidden relative z-50 w-10 h-10 flex items-center justify-center"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? (
-            <X className="w-6 h-6 text-[#08090a] dark:text-white transition-transform duration-200 transform rotate-0 hover:rotate-90" />
-          ) : (
-            <Menu className="w-6 h-6 text-[#08090a] dark:text-white transition-transform duration-200 transform hover:scale-110" />
-          )}
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
       <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} sections={sections} />
     </>
   );
