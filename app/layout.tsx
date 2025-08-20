@@ -1,8 +1,46 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@/components/analytics";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "400", "700", '900'] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Pritam Ghosh",
+  description: "",
+  keywords: [
+    "Pritam Ghosh",
+    "Pritam",
+    "Ghosh",
+    "Portfolio",
+    "Software Developer",
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Backend Developer",
+  ],
+  openGraph: {
+    title: "Pritam Ghosh",
+    description: "",
+    type: "website",
+    url: "https://pritam.tech",
+  },
+  twitter: {
+    title: "Pritam Ghosh",
+    description: "",
+    card: "summary_large_image",
+    site: "https://pritam.tech",
+    creator: "@PritamGhosh010",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -11,39 +49,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/logo.svg" sizes="any" />
-      </head>
-      <body className={`${poppins.className}`}>
-        {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-
-
-export const metadata: Metadata = {
-  title: {
-    default: 'Aditya Domle | Frontend Developer based in Maharashtra, India',
-    template: '%s - Aditya Domle',
-  },
-  description: 'Explore the portfolio of Aditya Domle based in Maharashtra, a skilled React/Next.js Developer. Discover expertise in ReactJS, NextJS, Redux, TailwindCSS, and modern frontend technologies showcased through innovative web development projects.',
-
-  icons: {
-    icon: './favicon.ico',
-  },
-  applicationName: 'Frontend Portfolio by Aditya Domle',
-  authors: [
-    {
-      name: 'Aditya Domle',
-      url: 'https://www.linkedin.com/in/adityadomle/',
-    },
-  ],
-  generator: 'Next.js',
-  referrer: 'origin',
-  themeColor: '#120012',
-  colorScheme: 'dark',
-  viewport: 'width=device-width, initial-scale=1',
-  creator: 'Aditya Domle',
-  publisher: 'Aditya Domle',
-};

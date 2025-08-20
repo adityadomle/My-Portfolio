@@ -1,113 +1,106 @@
-<div align="center">
-  <br />
-  <a href="https://devfolio-atzin.vercel.app/" target="_blank">
-    <img src="public/assets/devfolio-banner.png" alt="Devfolio Banner">
-  </a>
-  <br />
+# Portfolio Template
 
-  <div>
-    <a href="https://nextjs.org/" target="_blank">
-      <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    </a>
-    <a href="https://www.framer.com/motion/" target="_blank">
-      <img src="https://img.shields.io/badge/-Framer-black?style=for-the-badge&logoColor=white&logo=framer&color=0055FF" alt="framer" />
-    </a>
-    <a href="https://tailwindcss.com/docs" target="_blank">
-      <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-    </a>
-  </div>
+![Portfolio Preview](image.png)
 
-  <h3 align="center">Atzin Escandia's Devfolio</h3>
-  <p align="center">A super easy, simple, and neon purple (pretty me) ready to create your developer portfolio. Because who has time for complicated setups?</p>
-</div>
+## Overview
 
-## 📋 Table of Contents
+A modern, responsive portfolio template built with Next.js, TypeScript, and Tailwind CSS. This template is designed to showcase your skills, projects, and professional experience with a clean and elegant UI.
 
-1. 💡 [Why This Project?](#why-this-project)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🛠️ [Features](#features)
-4. 🚀 [Getting Started](#getting-started)
-5. 🌟 [Portfolio Inspiration](#portfolio-inspiration)
-6. 📝 [More Resources](#more-resources)
+## Features
 
-## 💡 Why This Project?
+- **Modern UI Design**: Clean, minimal interface with smooth animations and transitions
+- **Responsive Layout**: Looks great on all devices from mobile to desktop
+- **Dark/Light Mode**: Built-in theme switching capability
+- **Section-Based Structure**: Organized sections for introduction, about, projects, skills, experience, services, and contact
+- **Custom Icons**: Unique icons for each section using Lucide React
+- **Interactive Components**: Spotlight cards, project showcases, and more
+- **SEO Optimized**: Ready for search engine visibility
+- **Fast Performance**: Built on Next.js for optimal loading speeds
 
-Hey there, dev! 👋
+## Tech Stack
 
-You know that feeling when you're ready to show off your skills but get overwhelmed trying to build the _perfect_ portfolio? I’ve been there. You start searching for the right design, the best tools, the _ideal_ way to present your awesomeness... only to get stuck in a rabbit hole.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React, React Icons
+- **Animations**: CSS Animations, Framer Motion
+- **Deployment**: Vercel
 
-So, I thought: **why not create something that makes this super simple, fast, and, dare I say, fun?** This portfolio template is for developers who want to get their work online without spending days tweaking code and layouts.
-
-## ⚙️ Tech Stack
-
--   **Next.js**: Because who doesn’t love fast, production-ready sites that _just work_?
--   **Framer Motion**: Transform your portfolio into an interactive experience with smooth animations.
--   **TailwindCSS**: The magic wand for styling without the headache.
--   **TypeScript**: Because you deserve to code with confidence and zero guesswork.
-
-## 🛠️ Features
-
-✨ **Responsive Design**: Your portfolio will look great on any device—bye-bye, broken layouts!
-
-🎨 **Clean & Stylish UI**: Simple yet stunning—designed to let your work take center stage. No frills, just results.
-
-💡 **Customization Made Easy**: Want to change colors, fonts, or content? Do it without pulling your hair out. Seriously.
-
-🎬 **Smooth Animations**: Thanks to Framer Motion, your portfolio will glide and flip like a pro.
-
-🔧 **Developer Friendly**: Built with devs in mind, using the best tools and practices. You'll feel right at home.
-
-💌 **Easy Contact Section**: Let potential employers, collaborators, or even fans reach out. No need to complicate things!
-
-## 🚀 Getting Started
-
-Ready to launch your portfolio? Follow these simple steps, and you’ll be live in a flash!
+## Getting Started
 
 ### Prerequisites
 
-Before you get started, make sure you have:
+- Node.js 18.0 or later
+- npm, yarn, or pnpm
 
--   [Git](https://git-scm.com/) installed on your machine.
--   [Node.js](https://nodejs.org/) (and Yarn) to manage dependencies.
+### Installation
 
-### Clone the Repository
+1. Clone the repository
 
-```bash
-git clone https://github.com/atzinescandia/atzin-escandia-devfolio.git
-cd atzin-escandia-devfolio
-```
+   ```bash
+   git clone https://github.com/yourusername/artifact-portfolio-template.git
+   cd artifact-portfolio-template
+   ```
 
-### Install Dependencies
+2. Install dependencies
 
-Run this command to install all the necessary dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-```bash
-yarn install
-```
+3. Start the development server
 
-### Run the Development Server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-Once you’re all set, fire up the server with:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-yarn dev
-```
+## Customization
 
-Now, head to [http://localhost:3000](http://localhost:3000) in your browser and _boom_, your portfolio is ready to shine!
+### Personal Information
 
-## 🌟 Portfolio Inspiration
+Update your personal information in the section components located in `components/sections/`:
 
-Looking for some inspo? Check out these amazing portfolios made using this template!
+- `Intro-section.tsx`: Update your name and introduction
+- `about-section.tsx`: Modify your bio and personal story
+- `experience-section.tsx`: Add your work experience
+- `projects-section.tsx`: Showcase your projects
+- `skills-section.tsx`: List your technical skills
+- `services-section.tsx`: Describe services you offer
+- `contact-section.tsx`: Update your contact information and social links
 
--   [Atzin Escandia Portfolio](https://atzinescandia.dev) - My personal site, where I show off my journey as a web dev and showcase my projects.
--   [The Plum Up Purple Neon](https://vscodethemes.com/e/atzinescandia.theplumup/theplumup) - A collection of portfolios by talented devs around the globe.
+### Styling
 
-## 📝 More Resources
+The project uses Tailwind CSS for styling. You can customize the theme in `globals.css`.
 
--   [Next.js Docs](https://nextjs.org/docs) - For when you need to level up your Next.js skills.
--   [Framer Motion](https://www.framer.com/motion/) - Bring your animations to life!
--   [TailwindCSS Docs](https://tailwindcss.com/docs) - The most efficient way to style your projects without the fuss.
+## Deployment
+
+The easiest way to deploy your portfolio is using [Vercel](https://vercel.com):
+
+1. Push your code to a GitHub repository
+2. Import the project to Vercel
+3. Deploy with a single click
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Lucide Icons](https://lucide.dev)
+- [React Icons](https://react-icons.github.io/react-icons)
 
 ---
 
-Feel free to fork this repo, tweak it to your heart's content, and start showing off your work! If you’ve got any questions or want to contribute, don’t hesitate to open an issue or submit a pull request. I’m always up for some collaboration! 🎉
+Built with ❤️ by Pritam.
