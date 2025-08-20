@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pritam Ghosh",
   description:
-    "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
+    "Portfolio of Aditya Domle - Software Developer specializing in modern web technologies",
   keywords: [
-    "Pritam Ghosh",
-    "Pritam",
-    "Ghosh",
+    "Aditya Domle",
+    "Aditya",
+    "Domle",
     "Portfolio",
     "Software Developer",
     "Full Stack Developer",
@@ -29,35 +29,35 @@ export const metadata: Metadata = {
     "Backend Developer",
   ],
   openGraph: {
-    title: "Pritam Ghosh - Full Stack Developer",
+    title: "Portfolio of Aditya",
     description:
-      "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
+      "Portfolio of Aditya Domle - Software Developer specializing in modern web technologies",
     type: "website",
-    url: "https://pritam.tech",
-    siteName: "Pritam Ghosh",
+    url: "",
+    siteName: "Aditya Domle",
     locale: "en_US",
     images: [
       {
-        url: "https://pritam.tech/og-image.png",
+        url: "",
         width: 1200,
         height: 630,
-        alt: "Pritam Ghosh - Full Stack Developer",
+        alt: "Aditya Domle - Full Stack Developer",
       },
     ],
   },
   twitter: {
-    title: "Pritam Ghosh - Full Stack Developer",
+    title: "Aditya Domle - Full Stack Developer",
     description:
-      "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
+      "Portfolio of Aditya Domle - Software Developer specializing in modern web technologies",
     card: "summary_large_image",
-    site: "@PritamGhosh010",
-    creator: "@PritamGhosh010",
+    site: "@domle_aditya",
+    creator: "@domle_aditya",
     images: [
       {
-        url: "https://pritam.tech/og-image.png",
+        url: "",
         width: 1200,
         height: 630,
-        alt: "Pritam Ghosh - Full Stack Developer",
+        alt: "Aditya Domle - Full Stack Developer",
       },
     ],
   },
