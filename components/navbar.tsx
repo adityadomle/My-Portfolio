@@ -25,7 +25,8 @@ type SectionPosition = {
 export function Navbar({
   developerInitial = "P",
   sections = [
-    { id: "about", label: "About" },
+    // { id: "about", label: "About" },
+    { id: "intro", label: "Intro" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
@@ -34,7 +35,7 @@ export function Navbar({
   ],
 }: NavbarProps) {
   const { theme } = useTheme();
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("intro");
   const [scrolled, setScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -129,11 +130,11 @@ export function Navbar({
       <nav
         className={cn(
           "fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[95%] max-w-[670px] py-2 px-4 rounded-sm transition-all duration-300 overflow-hidden",
-          "bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/30"
+          "bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-500/10"
         )}
       >
         <div className="flex-shrink-0 relative">
-          <div className="w-9 h-9 rounded-full bg-[#08090a] dark:bg-emerald-600"></div>
+          <div className="w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-600"></div>
         </div>
         <div className="hidden sm:flex items-center space-x-1">
           {sections.map((section) => (
@@ -154,8 +155,8 @@ export function Navbar({
         className={cn(
           "fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[95%] max-w-[670px] py-2 px-4 rounded-sm transition-all duration-300 overflow-hidden",
           scrolled
-            ? "bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-800/50 shadow-lg"
-            : "bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-800/30"
+            ? "bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-500/10 shadow-lg"
+            : "bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-sm border border-gray-200/60 dark:border-gray-500/10"
         )}
         onMouseMove={handleMouseMove}
       >
@@ -165,20 +166,20 @@ export function Navbar({
           style={{
             background:
               theme === "dark"
-                ? `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.15), transparent 40%)`
+                ? `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(100, 116, 139, 0.15), transparent 40%)`
                 : `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(8, 9, 10, 0.15), transparent 40%)`,
           }}
         />
 
         {/* Subtle Glow Border */}
         <div className="absolute inset-0 rounded-sm opacity-20 blur-sm">
-          <div className="absolute inset-px rounded-sm border border-emerald-500/20" />
+          <div className="absolute inset-px rounded-sm border border-slate-200/20" />
         </div>
 
         <div className="flex-shrink-0 relative">
           <Link
             href="#"
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-emerald-600 text-white dark:text-black/70 font-semibold relative overflow-hidden group"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold relative overflow-hidden group"
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
               <div
@@ -210,7 +211,7 @@ export function Navbar({
                 <div className="absolute inset-0 opacity-20">
                   <div
                     className={cn(
-                      "absolute inset-0 bg-gradient-to-r from-transparent via-[#08090a]/30 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-emerald-500/30 dark:to-transparent"
+                      "absolute inset-0 bg-gradient-to-r from-transparent via-[#08090a]/30 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-slate-500/30 dark:to-transparent"
                     )}
                     style={{ animation: "var(--animate-shine)" }}
                   />

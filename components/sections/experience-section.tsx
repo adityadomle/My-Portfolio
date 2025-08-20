@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import HeadingBadge from "@/components/heading-badge";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { Building2, Calendar, ChevronRight, Briefcase } from "lucide-react";
+import { Calendar, ChevronRight, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 type Experience = {
   company: string;
@@ -13,12 +14,14 @@ type Experience = {
   duration: string;
   description: string[];
   technologies: string[];
+  link: string;
 };
 
 const experiences: Experience[] = [
   {
     company: "Clipo AI",
     companyLink: "https://www.linkedin.com/company/clipo-ai",
+    link: "https://clipo.ai",
     position: "Frontend Developer",
     duration: "Nov 2024 - Present",
     description: [
@@ -31,6 +34,7 @@ const experiences: Experience[] = [
   {
     company: "Resource Plan",
     companyLink: "https://www.linkedin.com/company/resourceplan",
+    link: "https://resourceplan.io",
     position: "Full Stack Developer",
     duration: "Sep 2024 - Nov 2024",
     description: [
@@ -51,6 +55,7 @@ const experiences: Experience[] = [
   {
     company: "MVP Application and Game Design LLC",
     companyLink: "https://www.linkedin.com/company/mvp-apps",
+    link: "https://mvpapps.com",
     position: "Frontend Developer",
     duration: "June 2024 - July 2024",
     description: [
@@ -70,6 +75,7 @@ const experiences: Experience[] = [
   {
     company: "Influcon Digitals LLC",
     companyLink: "https://www.linkedin.com/company/influcon-digitals",
+    link: "https://influcondigitals.com",
     position: "Full Stack Developer",
     duration: "Dec 2023 - Jan 2024",
     description: [
@@ -101,11 +107,14 @@ export function ExperienceSection() {
     <section id="experience" className="pt-10">
       <div className="space-y-8">
         <div className="flex flex-col items-start justify-start gap-5">
-          <HeadingBadge title="Experience" icon={<Briefcase size={14} />} />
+          <HeadingBadge
+            title="Experience"
+            icon={<Briefcase size={14} color="#F59E42" />}
+          />
           <div className="space-y-2">
             <h3 className="text-3xl font-semibold">
               Work{" "}
-              <span className="text-[#08090a] dark:text-emerald-500">
+              <span className="text-[#08090a] dark:text-slate-200">
                 Experience
               </span>
             </h3>
@@ -121,11 +130,11 @@ export function ExperienceSection() {
             <SpotlightCard
               key={index}
               className={cn(
-                "p-6 cursor-pointer transition-all duration-300 group rounded-sm border border-gray-200/80 dark:border-gray-800/50 ease-in-out hover:border-gray-900/30 dark:hover:border-emerald-500/30",
-                "hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-emerald-500/5",
+                "p-6 cursor-pointer transition-all duration-300 group rounded-sm border border-gray-200/80 dark:border-gray-500/10 ease-in-out hover:border-gray-900/30 dark:hover:border-gray-500/20",
+                "hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-gray-500/5",
                 expandedIndex === index ? "bg-opacity-10" : ""
               )}
-              gradientColor="rgba(34, 197, 94, 0.15)"
+              gradientColor="rgba(100, 116, 139, 0.15)"
               lightGradientColor="rgba(8, 9, 10, 0.15)"
               onClick={() => toggleExpand(index)}
               disableScale={true}
@@ -139,7 +148,7 @@ export function ExperienceSection() {
                       </h3>
                       <ChevronRight
                         className={cn(
-                          "w-5 h-5 text-[#08090a] dark:text-emerald-500 transition-all duration-500",
+                          "w-5 h-5 text-[#08090a] dark:text-slate-200 transition-all duration-500",
                           "transform-gpu opacity-0 scale-95 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-100",
                           "ease-[cubic-bezier(0.34,1.56,0.64,1)]",
                           expandedIndex === index ? "rotate-90" : "rotate-0",
@@ -149,12 +158,16 @@ export function ExperienceSection() {
                         )}
                       />
                     </div>
-                    <div className="flex items-center gap-2 text-[#737373] dark:text-[#A1A1AA]">
-                      <Building2 className="w-4 h-4" />
+                    <Link
+                      href={experience.companyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center z-50 gap-2 text-[#737373] dark:text-[#A1A1AA]"
+                    >
                       <span>{experience.company}</span>
-                    </div>
+                    </Link>
                   </section>
-                  <section className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-[#191a1a] text-[#08090a] dark:text-emerald-500 text-sm">
+                  <section className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-[#191a1a] text-[#08090a] dark:text-slate-200 text-sm">
                     <Calendar className="w-4 h-4" />
                     <span>{experience.duration}</span>
                   </section>
@@ -199,7 +212,7 @@ export function ExperienceSection() {
                                   : "0ms",
                             }}
                             className={cn(
-                              "px-2 py-1 text-xs rounded-sm font-medium bg-white dark:bg-[#0a0a0a] border border-gray-200/80 dark:border-gray-800/50 text-[#737373] dark:text-[#A1A1AA] group-hover:border-gray-900/30 dark:group-hover:border-emerald-500/30 transition-all duration-300",
+                              "px-2 py-1 text-xs rounded-sm font-medium bg-white dark:bg-[#0a0a0a] border border-gray-200/80 dark:border-gray-500/10 text-[#737373] dark:text-[#A1A1AA] group-hover:border-gray-900/30 dark:group-hover:border-slate-500/20 transition-all duration-300",
                               expandedIndex === index
                                 ? "opacity-100 translate-y-0"
                                 : "opacity-0 translate-y-4"

@@ -1,6 +1,4 @@
-# Portfolio Template
-
-![Portfolio Preview](image.png)
+# Portfolio
 
 ## Overview
 
@@ -10,7 +8,6 @@ A modern, responsive portfolio template built with Next.js, TypeScript, and Tail
 
 - **Modern UI Design**: Clean, minimal interface with smooth animations and transitions
 - **Responsive Layout**: Looks great on all devices from mobile to desktop
-- **Dark/Light Mode**: Built-in theme switching capability
 - **Section-Based Structure**: Organized sections for introduction, about, projects, skills, experience, services, and contact
 - **Custom Icons**: Unique icons for each section using Lucide React
 - **Interactive Components**: Spotlight cards, project showcases, and more
@@ -38,8 +35,8 @@ A modern, responsive portfolio template built with Next.js, TypeScript, and Tail
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/yourusername/artifact-portfolio-template.git
-   cd artifact-portfolio-template
+   git clone https://github.com/yourusername/my-portfolio.git
+   cd my-portfolio
    ```
 
 2. Install dependencies
@@ -71,7 +68,6 @@ A modern, responsive portfolio template built with Next.js, TypeScript, and Tail
 Update your personal information in the section components located in `components/sections/`:
 
 - `Intro-section.tsx`: Update your name and introduction
-- `about-section.tsx`: Modify your bio and personal story
 - `experience-section.tsx`: Add your work experience
 - `projects-section.tsx`: Showcase your projects
 - `skills-section.tsx`: List your technical skills

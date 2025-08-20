@@ -70,7 +70,7 @@ const MobileNav = ({
       <div
         className={cn(
           "fixed top-20 right-3 h-fit w-72 rounded-sm z-50 shadow-2xl sm:hidden flex flex-col overflow-hidden",
-          "bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-800/50",
+          "bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-500/10",
           "transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
           isOpen
             ? "translate-x-0 opacity-100 scale-100"
@@ -86,7 +86,7 @@ const MobileNav = ({
                 href={`#${section.id}`}
                 className={cn(
                   "group flex items-center justify-between px-4 py-3.5 text-base rounded-sm relative overflow-hidden",
-                  "text-[#737373] dark:text-[#A1A1AA]",
+                  "text-slate-600 dark:text-slate-200",
                   "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 )}
                 onClick={(e) => {
@@ -119,14 +119,14 @@ const MobileNav = ({
                 >
                   <div
                     className={cn(
-                      "absolute inset-0 bg-gradient-to-r from-transparent via-[#08090a]/30 to-transparent dark:from-transparent dark:via-emerald-500/30 dark:to-transparent"
+                      "absolute inset-0 bg-gradient-to-r from-transparent via-[#08090a]/30 to-transparent dark:from-transparent dark:via-white/30 dark:to-transparent"
                     )}
                     style={{ animation: "var(--animate-shine)" }}
                   />
                 </div>
 
                 {/* Content */}
-                <span className="relative z-10 font-normal transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-black dark:group-hover:text-white">
+                <span className="relative z-10 font-normal transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] text-[#737373] dark:text-[#A1A1AA] group-hover:text-black dark:group-hover:text-white">
                   {section.label}
                 </span>
 
@@ -134,9 +134,9 @@ const MobileNav = ({
                 <ChevronRight
                   className={cn(
                     "relative z-10 w-4 h-4",
-                    "text-gray-400 dark:text-gray-500",
+                    "text-slate-400 dark:text-white",
                     "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                    "group-hover:text-[#08090a] dark:group-hover:text-white",
+                    "group-hover:text-slate-900 dark:group-hover:text-slate-100",
                     "transform group-hover:translate-x-1"
                   )}
                 />

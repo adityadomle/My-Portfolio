@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pritam Ghosh",
-  description: "",
+  description:
+    "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
   keywords: [
     "Pritam Ghosh",
     "Pritam",
@@ -28,17 +29,37 @@ export const metadata: Metadata = {
     "Backend Developer",
   ],
   openGraph: {
-    title: "Pritam Ghosh",
-    description: "",
+    title: "Pritam Ghosh - Full Stack Developer",
+    description:
+      "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
     type: "website",
     url: "https://pritam.tech",
+    siteName: "Pritam Ghosh",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://pritam.tech/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pritam Ghosh - Full Stack Developer",
+      },
+    ],
   },
   twitter: {
-    title: "Pritam Ghosh",
-    description: "",
+    title: "Pritam Ghosh - Full Stack Developer",
+    description:
+      "Portfolio of Pritam Ghosh - Software Developer specializing in modern web technologies",
     card: "summary_large_image",
-    site: "https://pritam.tech",
+    site: "@PritamGhosh010",
     creator: "@PritamGhosh010",
+    images: [
+      {
+        url: "https://pritam.tech/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pritam Ghosh - Full Stack Developer",
+      },
+    ],
   },
 };
 
