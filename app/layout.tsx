@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pritam Ghosh",
+  title: "Portfolio of Aditya",
   description:
     "Portfolio of Aditya Domle - Software Developer specializing in modern web technologies",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Aditya Domle - Software Developer specializing in modern web technologies",
     type: "website",
-    url: "",
+    url: "imaditya.in",
     siteName: "Aditya Domle",
     locale: "en_US",
     images: [

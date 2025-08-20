@@ -14,7 +14,7 @@ const experiences = [
     companyLink: "https://gssoc.girlscript.tech/",
     link: "https://gssoc.girlscript.tech/",
     position: "Project Admin & Contributor",
-    duration: "May 2024 - Present",
+    duration: "July 2025 - Present",
     description: [
       "Maintaining and contributing to open-source projects.",
       "Mentoring contributors and reviewing PRs.",
@@ -27,7 +27,7 @@ const experiences = [
     companyLink: "https://sheryians.com/",
     link: "https://sheryians.com/",
     position: "Full Stack Cohort Member",
-    duration: "Jan 2024 - Present",
+    duration: "Feb 2025 - Present",
     description: [
       "Learning advanced full-stack development under structured mentorship.",
       "Building real-world projects with a focus on modern web technologies.",
