@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import MobileNav from "./mobile-nav";
 
 interface NavbarProps {
-  developerInitial?: string; // ✅ Added this
+  developerInitial?: string; // ✅ Added
   sections?: {
     id: string;
     label: string;
@@ -42,7 +42,7 @@ export function Navbar({
 
   useEffect(() => setMounted(true), []);
 
-  // Scroll effect
+  // Scroll detection for active section
   useEffect(() => {
     if (!mounted) return;
 
@@ -116,11 +116,11 @@ export function Navbar({
             href="#"
             className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold"
           >
-            {developerInitial} {/* ✅ Use the developerInitial prop */}
+            {developerInitial}
           </Link>
         </div>
 
-        {/* Sections */}
+        {/* Desktop Sections */}
         <div className="hidden sm:flex items-center space-x-1">
           {sections.map((section) => (
             <Link
@@ -142,7 +142,7 @@ export function Navbar({
           ))}
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Button */}
         <button
           className="sm:hidden relative z-50 w-10 h-10 flex items-center justify-center"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -151,7 +151,12 @@ export function Navbar({
         </button>
       </nav>
 
-      <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} sections={sections} />
+      {/* Mobile Navigation */}
+      <MobileNav
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        sections={sections}
+      />
     </>
   );
 }
