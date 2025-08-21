@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 import MobileNav from "./mobile-nav";
 
 interface NavbarProps {
-  developerInitial?: string;
   sections?: {
     id: string;
     label: string;
@@ -23,9 +22,7 @@ type SectionPosition = {
 };
 
 export function Navbar({
-  developerInitial = "P",
   sections = [
-    // { id: "about", label: "About" },
     { id: "intro", label: "Intro" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
@@ -51,12 +48,10 @@ export function Navbar({
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Get all section elements and their positions
       const sectionPositions = sections
         .map((section) => {
           const element = document.getElementById(section.id);
           if (!element) return null;
-
           const rect = element.getBoundingClientRect();
           return {
             id: section.id,
@@ -69,21 +64,15 @@ export function Navbar({
 
       if (sectionPositions.length === 0) return;
 
-      // Calculate which section is most visible in the viewport
       const viewportTop = window.scrollY;
       const viewportCenter = viewportTop + window.innerHeight / 2;
 
-      // Sort by proximity to center of viewport
       const sortedSections = [...sectionPositions].sort((a, b) => {
         const aCenter = a.top + a.height / 2;
         const bCenter = b.top + b.height / 2;
-        return (
-          Math.abs(aCenter - viewportCenter) -
-          Math.abs(bCenter - viewportCenter)
-        );
+        return Math.abs(aCenter - viewportCenter) - Math.abs(bCenter - viewportCenter);
       });
 
-      // Find the section that is most visible
       const mostVisibleSection = sortedSections[0];
       if (mostVisibleSection && mostVisibleSection.id !== activeSection) {
         setActiveSection(mostVisibleSection.id);
@@ -91,7 +80,6 @@ export function Navbar({
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Run once on mount to set initial active section
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections, activeSection, mounted]);
@@ -111,9 +99,8 @@ export function Navbar({
     const element = document.getElementById(id);
     if (!element) return;
 
-    const navbarHeight = 80; // Approximate navbar height including margins
-    const elementPosition =
-      element.getBoundingClientRect().top + window.scrollY;
+    const navbarHeight = 80;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - navbarHeight;
 
     window.scrollTo({
@@ -124,7 +111,6 @@ export function Navbar({
     setActiveSection(id);
   };
 
-  // Render a placeholder during SSR to avoid hydration mismatch
   if (!mounted) {
     return (
       <nav
@@ -138,10 +124,7 @@ export function Navbar({
         </div>
         <div className="hidden sm:flex items-center space-x-1">
           {sections.map((section) => (
-            <div
-              key={section.id}
-              className="px-3 py-1.5 text-sm rounded-full"
-            ></div>
+            <div key={section.id} className="px-3 py-1.5 text-sm rounded-full"></div>
           ))}
         </div>
         <div className="sm:hidden relative z-50 w-10 h-10"></div>
@@ -171,23 +154,17 @@ export function Navbar({
           }}
         />
 
-        {/* Subtle Glow Border */}
         <div className="absolute inset-0 rounded-sm opacity-20 blur-sm">
           <div className="absolute inset-px rounded-sm border border-slate-200/20" />
         </div>
 
+        {/* Logo A */}
         <div className="flex-shrink-0 relative">
           <Link
             href="#"
             className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold relative overflow-hidden group"
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                style={{ animation: "var(--animate-shine)" }}
-              />
-            </div>
-            {developerInitial}
+            A {/* Direct letter A */}
           </Link>
         </div>
 
@@ -222,6 +199,7 @@ export function Navbar({
           ))}
         </div>
 
+        {/* Mobile menu toggle */}
         <button
           className="sm:hidden relative z-50 w-10 h-10 flex items-center justify-center cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -233,6 +211,7 @@ export function Navbar({
           )}
         </button>
       </nav>
+
       <MobileNav
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
