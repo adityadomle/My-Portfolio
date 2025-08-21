@@ -158,13 +158,13 @@ export function Navbar({
           <div className="absolute inset-px rounded-sm border border-slate-200/20" />
         </div>
 
-        {/* Logo A */}
+        {/* Logo always "A" */}
         <div className="flex-shrink-0 relative">
           <Link
             href="#"
             className="flex items-center justify-center w-9 h-9 rounded-full bg-[#08090a] dark:bg-slate-100 text-white dark:text-black font-semibold relative overflow-hidden group"
           >
-            A {/* Direct letter A */}
+            A
           </Link>
         </div>
 
@@ -212,11 +212,7 @@ export function Navbar({
         </button>
       </nav>
 
-      <MobileNav
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        sections={sections}
-      />
+      <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} sections={sections} />
     </>
   );
 }
